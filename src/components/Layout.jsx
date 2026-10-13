@@ -21,6 +21,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import { Home } from './Home';
 import { About } from './About';
+import { Detail } from './Detail';
 import { useNavigate } from 'react-router';
 
 const drawerWidth = 240;
@@ -165,6 +166,7 @@ export const Layout = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
+          <Route path='/detail/:id' element={<Detail />} />
         </Routes>
 
       </Main>
