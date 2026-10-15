@@ -8,8 +8,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from "react-router";
+import { useContext } from 'react';
+import { ContextAutor } from '../context/ContextAutor';
 
 export const Home = () => {
+  const {autor,setAutor} = useContext(ContextAutor);
   const navigate = useNavigate();
   const [coins, setCoins] = useState([]);
 
@@ -31,8 +34,11 @@ export const Home = () => {
 
   return (
     <Box sx={{ flexGrow: 1, p: 1 }}>
-      <Typography variant="h4" sx={{ mb: 3, fontWeight: 'bold' }}>
-        Criptomonedas
+      <Typography variant="h4" sx={{  fontWeight: 'bold', textShadow: '0 0 8px #00FF00', letterSpacing: 2, mb: 1 }}>
+        CRIPTOMONEDAS
+      </Typography>
+      <Typography variant="h6" sx={{  fontWeight: 'bold', textShadow: '0 0 8px #00FF00', letterSpacing: 2, mb: 4 }}>
+        Desarrollado por: {autor}
       </Typography>
 
       <Grid container spacing={5}>

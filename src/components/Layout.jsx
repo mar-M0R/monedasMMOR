@@ -24,6 +24,7 @@ import { About } from './About';
 import { Detail } from './Detail';
 import { useNavigate } from 'react-router';
 
+
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -88,7 +89,7 @@ export const Layout = () => {
 
   const handleDrawerOpen = () => {
     setOpen(true);
-  };
+};
 
   const handleDrawerClose = () => {
     setOpen(false);
@@ -99,44 +100,22 @@ export const Layout = () => {
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={[
-              {
-                mr: 2,
-              },
-              open && { display: 'none' },
-            ]}
-          >
+          <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" sx={[ { mr: 2, }, open && { display: 'none' }, ]} >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h5" sx={{  fontWeight: 'bold', textShadow: '0 0 8px #00FF00', letterSpacing: 2}}>
             Coins
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
+      <Drawer sx={{ width: drawerWidth, flexShrink: 0, '& .MuiDrawer-paper': { width: drawerWidth, boxSizing: 'border-box', }, }} variant="persistent" anchor="left" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
+
         <List>
           <ListItem disablePadding>
             <ListItemButton onClick={() => navigate("/")}>

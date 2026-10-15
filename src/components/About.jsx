@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import { ContextAutor } from '../context/ContextAutor';
 
 export const About = () => {
-  return (
+  const {autor} = useContext(ContextAutor);
+  return (  
     <Box sx={{ p: 4, maxWidth: 900, mx: 'auto' }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 4 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }}>
         <Typography variant="h4" sx={{  fontWeight: 'bold', textShadow: '0 0 8px #00FF00', letterSpacing: 2 }}>
           ABOUT PROJECT
+        </Typography>
+      </Box>
+
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
+        <Typography variant="h6" sx={{  fontWeight: 'bold', textShadow: '0 0 8px #00FF00', letterSpacing: 2 }}>
+          Desarrollado por: {autor}
         </Typography>
       </Box>
 

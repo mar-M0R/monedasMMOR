@@ -2,13 +2,14 @@ import { useState } from "react"
 import { Layout } from "./components/Layout"
 import { BrowserRouter } from "react-router"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ProviderAutor } from "./context/ProviderAutor";
 
 const matrixTheme = createTheme({
   palette: {
     mode: 'dark',
     background: {
       default: '#000000',
-      paper: '#000000', // Fondo totalmente negro para superficies
+      paper: '#000000', 
     },
     text: {
       primary: '#00FF00',
@@ -22,22 +23,20 @@ const matrixTheme = createTheme({
     fontFamily: '"Courier New", Courier, monospace',
   },
   components: {
-    // Estilos personalizados para las Tarjetas
     MuiCard: {
       styleOverrides: {
         root: {
           backgroundColor: '#000000',
-          border: '1px solid #00FF00', // Borde verde
-          boxShadow: '0 0 10px rgba(0, 255, 0, 0.3)', // Resplandor verde neón
+          border: '1px solid #00FF00',
+          boxShadow: '0 0 10px rgba(0, 255, 0, 0.3)', 
           transition: 'all 0.3s ease-in-out',
           '&:hover': {
-            boxShadow: '0 0 18px rgba(0, 255, 0, 0.7)', // Mayor resplandor al pasar el cursor
+            boxShadow: '0 0 18px rgba(0, 255, 0, 0.7)', 
             borderColor: '#33FF33',
           },
         },
       },
     },
-    // Estilos personalizados para los Botones
     MuiButton: {
       styleOverrides: {
         root: {
@@ -60,10 +59,11 @@ const matrixTheme = createTheme({
 function App() {
     return (
       <ThemeProvider theme={matrixTheme}>
-        <BrowserRouter>
-          <Layout></Layout>
-        </BrowserRouter>
-        
+        <ProviderAutor>
+          <BrowserRouter>
+            <Layout></Layout>
+          </BrowserRouter>
+        </ProviderAutor>
       </ThemeProvider>
       
     )
